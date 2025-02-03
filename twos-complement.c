@@ -46,7 +46,7 @@ void intToBinary(int n, char* str)
 {
     int origN=n;
 
-    if (n<0) //itoc breaks if n<1
+    if (n<0) //itoc breaks if n<0
     {
         n*=-1;
     }
@@ -57,9 +57,10 @@ void intToBinary(int n, char* str)
         n/=2;
     }
 
-    if (origN<0) //fix negative values
+    if (origN<0) //fix negative values via two's complement
     {
         invertBinary(str);
+
         addBinary(str, 1);
     }
 }
@@ -100,12 +101,12 @@ void invertBinary(char* str)
         }
         else //should never happen
         {
-            printf("%s\n", "error. binary value holds a value that is not 0 or 1");
+            printf("%s\n", "error: binary holds a value that is not 0 or 1");
         }
     }
 }
 
-char itoc(int n)
+char itoc(int n) //value must be 0-9
 {
     return n+'0';
 }
