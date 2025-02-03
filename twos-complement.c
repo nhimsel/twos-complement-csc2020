@@ -14,6 +14,7 @@ int ctoi(char c);
 
 int main()
 {
+    //we're working in 32bit
     char str[32]="";
     int num;
 
